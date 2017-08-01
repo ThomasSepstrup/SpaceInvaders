@@ -1,7 +1,5 @@
 package dk.letsdoit;
 
-import javax.swing.*;
-
 public class Alien extends Sprite {
 
     private Bomb bomb;
@@ -19,7 +17,7 @@ public class Alien extends Sprite {
         this.y = y;
 
         bomb = new Bomb(x, y);
-        setImage(ImageScaler.getScaledImage(Commons.ALIEN_SHIP_IMAGE,Commons.ALIEN_WIDTH, Commons.ALIEN_HEIGHT));
+        setImage(Commons.ALIEN_SHIP_IMAGE,Commons.ALIEN_WIDTH, Commons.ALIEN_HEIGHT);
     }
 
     public void act(int direction) {
@@ -67,8 +65,8 @@ public class Alien extends Sprite {
             setDestroyed(true);
             this.x = x;
             this.y = y;
-            ImageIcon ii = new ImageIcon(bombImg);
-            setImage(ii.getImage());
+
+            setImage(Commons.BOMB_IMAGE, Commons.BOMB_WIDTH, Commons.BOMB_HEIGHT);
 
         }
 

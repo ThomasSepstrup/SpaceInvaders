@@ -1,7 +1,5 @@
 package dk.letsdoit;
 
-import javax.swing.ImageIcon;
-
 public class Shot extends Sprite {
 
     private final String shotImg = Commons.SHOT_IMAGE;
@@ -18,8 +16,7 @@ public class Shot extends Sprite {
 
     private void initShot(int x, int y) {
 
-        ImageIcon ii = new ImageIcon(shotImg);
-        setImage(ii.getImage());
+        setImage(Commons.SHOT_IMAGE, Commons.SHOT_WIDTH, Commons.SHOT_HEIGHT);
 
         setX(x + H_SPACE);
         setY(y - V_SPACE);

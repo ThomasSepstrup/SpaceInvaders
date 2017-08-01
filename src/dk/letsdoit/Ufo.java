@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class Ufo extends Sprite {
 
-    private final String ufoImage = Commons.UFO_SHIP_IMAGE;
+    private final String ufoImage = Commons.UFO_IMAGE;
 
     public Ufo(int x, int y){
 
@@ -14,7 +14,7 @@ public class Ufo extends Sprite {
     private void initUfo(int x, int y) {
 
         ImageIcon ii = new ImageIcon(ufoImage);
-        setImage(ii.getImage());
+        setImage(Commons.UFO_IMAGE, Commons.UFO_WIDTH, Commons.UFO_HEIGHT);
 
     }
 

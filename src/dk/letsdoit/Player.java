@@ -1,6 +1,5 @@
 package dk.letsdoit;
 
-import javax.swing.*;
 import java.awt.event.KeyEvent;
 
 public class Player extends Sprite implements Commons {
@@ -12,9 +11,7 @@ public class Player extends Sprite implements Commons {
 
     private void initPlayer() {
 
-        ImageIcon ii = new ImageIcon(PLAYER_SHIP_IMAGE);
-
-        setImage(ImageScaler.getScaledImage(PLAYER_SHIP_IMAGE,PLAYER_WIDTH,PLAYER_HEIGHT));
+        setImage(PLAYER_SHIP_IMAGE,PLAYER_WIDTH,PLAYER_HEIGHT);
         setX(BOARD_WIDTH / 2);
         setY(GROUND - PLAYER_GROUND_OFFSET);
     }

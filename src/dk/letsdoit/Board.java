@@ -171,7 +171,7 @@ public class Board extends JPanel implements Runnable, Commons {
 
     public void animationCycle() {
 
-        if (deaths == NUMBER_OF_ALIENS_TO_DESTROY) {
+        if (deaths == ALIEN_X_COUNT * ALIEN_Y_COUNT) {
 
             ingame = false;
             message = "Game won!";
@@ -206,9 +206,8 @@ public class Board extends JPanel implements Runnable, Commons {
                             && shotX <= (alienX + ALIEN_WIDTH)
                             && shotY >= (alienY)
                             && shotY <= (alienY + ALIEN_HEIGHT)) {
-                        ImageIcon ii
-                                = new ImageIcon(explImg);
-                        alien.setImage(ii.getImage());
+
+                        alien.setImage(EXPLOSION_IMAGE, EXPLOSION_WIDTH, EXPLOSION_HEIGHT);
                         alien.setDying(true);
                         calculateClearShot(alien);
                         deaths++;
@@ -317,9 +316,8 @@ public class Board extends JPanel implements Runnable, Commons {
                         && bombX <= (playerX + PLAYER_WIDTH)
                         && bombY >= (playerY)
                         && bombY <= (playerY + PLAYER_HEIGHT)) {
-                    ImageIcon ii
-                            = new ImageIcon(explImg);
-                    player.setImage(ii.getImage());
+
+                    player.setImage(EXPLOSION_IMAGE, EXPLOSION_WIDTH, EXPLOSION_HEIGHT);
                     player.setDying(true);
                     bomb.setDestroyed(true);
                 }
