@@ -15,8 +15,6 @@ public class Board extends JPanel implements Runnable, Commons {
     private Player player;
     private Shot shot;
 
-    private final int ALIEN_INIT_X = 150;
-    private final int ALIEN_INIT_Y = 5;
     private int direction = -1;
     private int deaths = 0;
 
@@ -56,7 +54,7 @@ public class Board extends JPanel implements Runnable, Commons {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 6; j++) {
 
-                Alien alien = new Alien(ALIEN_INIT_X + (18 * j), ALIEN_INIT_Y + (18 * i));
+                Alien alien = new Alien(ALIEN_INIT_X + (ALIEN_X_OFFSET * j), ALIEN_INIT_Y + (ALIEN_Y_OFFSET * i));
                 aliens.add(alien);
             }
         }
@@ -72,8 +70,6 @@ public class Board extends JPanel implements Runnable, Commons {
     }
 
     public void drawAliens(Graphics g) {
-
-        Iterator it = aliens.iterator();
 
         for (Alien alien: aliens) {
 

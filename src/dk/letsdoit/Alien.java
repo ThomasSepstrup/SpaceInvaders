@@ -1,11 +1,10 @@
 package dk.letsdoit;
 
-import javax.swing.ImageIcon;
+import javax.swing.*;
 
 public class Alien extends Sprite {
 
     private Bomb bomb;
-    private final String alienImg = Commons.ALIEN_SHIP_IMAGE;
 
     public Alien(int x, int y) {
 
@@ -18,8 +17,7 @@ public class Alien extends Sprite {
         this.y = y;
 
         bomb = new Bomb(x, y);
-        ImageIcon ii = new ImageIcon(alienImg);
-        setImage(ii.getImage());
+        setImage(ImageScaler.getScaledImage(Commons.ALIEN_SHIP_IMAGE,Commons.ALIEN_WIDTH, Commons.ALIEN_HEIGHT));
     }
 
     public void act(int direction) {
