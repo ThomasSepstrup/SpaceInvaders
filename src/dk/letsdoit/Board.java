@@ -178,6 +178,16 @@ public class Board extends JPanel implements Runnable, Commons {
         player.act();
 
         // shot
+        animateShots();
+
+        // animateAliens
+        animateAliens();
+
+        // animateBombs
+        animateBombs();
+    }
+
+    private void animateShots() {
         if (shot.isVisible()) {
 
             int shotX = shot.getX();
@@ -212,9 +222,9 @@ public class Board extends JPanel implements Runnable, Commons {
                 shot.setY(y);
             }
         }
+    }
 
-        // aliens
-
+    private void animateAliens() {
         for (Alien alien: aliens) {
 
             int x = alien.getX();
@@ -263,8 +273,9 @@ public class Board extends JPanel implements Runnable, Commons {
                 alien.act(direction);
             }
         }
+    }
 
-        // bombs
+    private void animateBombs() {
         Random generator = new Random();
 
         for (Alien alien: aliens) {
