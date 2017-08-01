@@ -16,6 +16,7 @@ public interface Commons {
     int DELAY = 17;
     int PLAYER_WIDTH = 15;
     int PLAYER_HEIGHT = 10;
+    int BOMB_CHANCE = 1000;
     String PLAYER_SHIP_IMAGE = "src/images/player.png";
     String ALIEN_SHIP_IMAGE = "src/images/alien.png";
     String SHOT_IMAGE = "src/images/shot.png";
