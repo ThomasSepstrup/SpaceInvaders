@@ -51,11 +51,18 @@ public class Board extends JPanel implements Runnable, Commons {
 
         aliens = new ArrayList<>();
 
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 6; j++) {
+        for (int i = 0; i < ALIEN_Y_COUNT; i++) {
+            for (int j = 0; j < ALIEN_X_COUNT; j++) {
 
                 Alien alien = new Alien(ALIEN_INIT_X + (ALIEN_X_OFFSET * j), ALIEN_INIT_Y + (ALIEN_Y_OFFSET * i));
                 aliens.add(alien);
+                if(aliens.size() <= ALIEN_X_COUNT) {
+                    alien.setAlienAbove(null);
+                } else {
+                    Alien alienAbove = aliens.get(aliens.size() - ALIEN_X_COUNT - 1);
+                    alienAbove.setAlienBelow(alien);
+                    alien.setAlienAbove(alienAbove);
+                }
             }
         }
 
@@ -203,6 +210,7 @@ public class Board extends JPanel implements Runnable, Commons {
                                 = new ImageIcon(explImg);
                         alien.setImage(ii.getImage());
                         alien.setDying(true);
+                        calculateClearShot(alien);
                         deaths++;
                         shot.die();
                     }
@@ -218,6 +226,18 @@ public class Board extends JPanel implements Runnable, Commons {
                 shot.setY(y);
             }
         }
+    }
+
+    private void calculateClearShot(Alien alien) {
+
+        if(alien.getAlienAbove()!=null) {
+            alien.getAlienAbove().setAlienBelow(alien.getAlienBelow());
+        }
+
+        if(alien.getAlienBelow()!=null) {
+            alien.getAlienBelow().setAlienAbove(alien.getAlienAbove());
+        }
+
     }
 
     private void animateAliens() {
@@ -279,7 +299,7 @@ public class Board extends JPanel implements Runnable, Commons {
             int shot = generator.nextInt(BOMB_CHANCE);
             Alien.Bomb bomb = alien.getBomb();
 
-            if (shot == CHANCE && alien.isVisible() && bomb.isDestroyed()) {
+            if (shot == CHANCE && alien.isVisible() && alien.hasCleanShot() && bomb.isDestroyed()) {
 
                 bomb.setDestroyed(false);
                 bomb.setX(alien.getX());

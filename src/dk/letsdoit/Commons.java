@@ -12,6 +12,8 @@ public interface Commons {
     int ALIEN_INIT_Y = 5;
     int ALIEN_X_OFFSET = 36;
     int ALIEN_Y_OFFSET = 36;
+    int ALIEN_X_COUNT = 6;
+    int ALIEN_Y_COUNT = 4;
     int BORDER_RIGHT = 30;
     int BORDER_LEFT = 5;
     int GO_DOWN = 15;
@@ -21,7 +23,7 @@ public interface Commons {
     int PLAYER_WIDTH = 15 * 2;
     int PLAYER_HEIGHT = 10 * 2;
     int PLAYER_GROUND_OFFSET = 40;
-    int BOMB_CHANCE = 1000;
+    int BOMB_CHANCE = 80;
     String PLAYER_SHIP_IMAGE = "src/images/player.png";
     String ALIEN_SHIP_IMAGE = "src/images/alien.png";
     String SHOT_IMAGE = "src/images/shot.png";

@@ -5,6 +5,8 @@ import javax.swing.*;
 public class Alien extends Sprite {
 
     private Bomb bomb;
+    private Alien alienAbove;
+    private Alien alienBelow;
 
     public Alien(int x, int y) {
 
@@ -28,6 +30,26 @@ public class Alien extends Sprite {
     public Bomb getBomb() {
 
         return bomb;
+    }
+
+    public boolean hasCleanShot() {
+        return alienBelow == null;
+    }
+
+    public Alien getAlienAbove() {
+        return alienAbove;
+    }
+
+    public void setAlienAbove(Alien alienAbove) {
+        this.alienAbove = alienAbove;
+    }
+
+    public Alien getAlienBelow() {
+        return alienBelow;
+    }
+
+    public void setAlienBelow(Alien alienBelow) {
+        this.alienBelow = alienBelow;
     }
 
     public class Bomb extends Sprite {
