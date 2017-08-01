@@ -1,20 +1,12 @@
 package dk.letsdoit;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
-
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
 
 public class Board extends JPanel implements Runnable, Commons {
 
@@ -64,7 +56,7 @@ public class Board extends JPanel implements Runnable, Commons {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 6; j++) {
 
-                Alien alien = new Alien(ALIEN_INIT_X + 18 * j, ALIEN_INIT_Y + 18 * i);
+                Alien alien = new Alien(ALIEN_INIT_X + (18 * j), ALIEN_INIT_Y + (18 * i));
                 aliens.add(alien);
             }
         }

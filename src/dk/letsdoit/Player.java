@@ -1,15 +1,13 @@
 package dk.letsdoit;
 
+import javax.swing.*;
 import java.awt.event.KeyEvent;
-
-import javax.swing.ImageIcon;
 
 public class Player extends Sprite implements Commons {
 
     private final int START_Y = 280;
     private final int START_X = 270;
 
-    private final String playerImg = PLAYER_SHIP_IMAGE;
     private int width;
 
     public Player() {
@@ -19,7 +17,7 @@ public class Player extends Sprite implements Commons {
 
     private void initPlayer() {
 
-        ImageIcon ii = new ImageIcon(playerImg);
+        ImageIcon ii = new ImageIcon(PLAYER_SHIP_IMAGE);
 
         width = ii.getImage().getWidth(null);
 
