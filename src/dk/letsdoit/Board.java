@@ -270,21 +270,21 @@ public class Board extends JPanel implements Runnable, Commons {
         for (Alien alien: aliens) {
 
             int shot = generator.nextInt(15);
-            Alien.Bomb b = alien.getBomb();
+            Alien.Bomb bomb = alien.getBomb();
 
-            if (shot == CHANCE && alien.isVisible() && b.isDestroyed()) {
+            if (shot == CHANCE && alien.isVisible() && bomb.isDestroyed()) {
 
-                b.setDestroyed(false);
-                b.setX(alien.getX());
-                b.setY(alien.getY());
+                bomb.setDestroyed(false);
+                bomb.setX(alien.getX());
+                bomb.setY(alien.getY());
             }
 
-            int bombX = b.getX();
-            int bombY = b.getY();
+            int bombX = bomb.getX();
+            int bombY = bomb.getY();
             int playerX = player.getX();
             int playerY = player.getY();
 
-            if (player.isVisible() && !b.isDestroyed()) {
+            if (player.isVisible() && !bomb.isDestroyed()) {
 
                 if (bombX >= (playerX)
                         && bombX <= (playerX + PLAYER_WIDTH)
@@ -294,16 +294,16 @@ public class Board extends JPanel implements Runnable, Commons {
                             = new ImageIcon(explImg);
                     player.setImage(ii.getImage());
                     player.setDying(true);
-                    b.setDestroyed(true);
+                    bomb.setDestroyed(true);
                 }
             }
 
-            if (!b.isDestroyed()) {
+            if (!bomb.isDestroyed()) {
 
-                b.setY(b.getY() + 1);
+                bomb.setY(bomb.getY() + 1);
 
-                if (b.getY() >= GROUND - BOMB_HEIGHT) {
-                    b.setDestroyed(true);
+                if (bomb.getY() >= GROUND - BOMB_HEIGHT) {
+                    bomb.setDestroyed(true);
                 }
             }
         }
