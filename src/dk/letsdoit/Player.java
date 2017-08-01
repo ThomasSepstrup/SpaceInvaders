@@ -5,11 +5,6 @@ import java.awt.event.KeyEvent;
 
 public class Player extends Sprite implements Commons {
 
-    private final int START_Y = 280;
-    private final int START_X = 270;
-
-    private int width;
-
     public Player() {
 
         initPlayer();
@@ -19,11 +14,9 @@ public class Player extends Sprite implements Commons {
 
         ImageIcon ii = new ImageIcon(PLAYER_SHIP_IMAGE);
 
-        width = ii.getImage().getWidth(null);
-
-        setImage(ii.getImage());
-        setX(START_X);
-        setY(START_Y);
+        setImage(ImageScaler.getScaledImage(PLAYER_SHIP_IMAGE,PLAYER_WIDTH,PLAYER_HEIGHT));
+        setX(BOARD_WIDTH / 2);
+        setY(GROUND - PLAYER_GROUND_OFFSET);
     }
 
     public void act() {
@@ -34,8 +27,8 @@ public class Player extends Sprite implements Commons {
             x = 2;
         }
 
-        if (x >= BOARD_WIDTH - 2 * width) {
-            x = BOARD_WIDTH - 2 * width;
+        if (x >= BOARD_WIDTH - 2 * PLAYER_WIDTH) {
+            x = BOARD_WIDTH - 2 * PLAYER_WIDTH;
         }
     }
 
