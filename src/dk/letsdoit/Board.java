@@ -14,6 +14,7 @@ public class Board extends JPanel implements Runnable, Commons {
     private ArrayList<Alien> aliens;
     private Player player;
     private Shot shot;
+    private SoundBoard soundBoard;
 
     private int direction = -1;
     private int deaths = 0;
@@ -38,6 +39,7 @@ public class Board extends JPanel implements Runnable, Commons {
 
         gameInit();
         setDoubleBuffered(true);
+        soundBoard = new SoundBoard();
     }
 
     @Override
@@ -209,6 +211,7 @@ public class Board extends JPanel implements Runnable, Commons {
 
                         alien.setImage(EXPLOSION_IMAGE, EXPLOSION_WIDTH, EXPLOSION_HEIGHT);
                         alien.setDying(true);
+                        soundBoard.playAlienKilledSound();
                         calculateClearShot(alien);
                         deaths++;
                         shot.die();
@@ -388,6 +391,7 @@ public class Board extends JPanel implements Runnable, Commons {
                 if (ingame) {
                     if (!shot.isVisible()) {
                         shot = new Shot(x, y);
+                        soundBoard.playPlayerShotSound();
                     }
                 }
             }
