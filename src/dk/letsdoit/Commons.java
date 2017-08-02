@@ -36,4 +36,6 @@ public interface Commons {
     String BOMB_IMAGE = "src/images/bomb.png";
     String UFO_IMAGE = "src/images/ufo.png";
     String EXPLOSION_IMAGE = "src/images/explosion.png";
+    String PLAYER_SHOT_SOUND = "/sounds/shoot.wav";
+    String ALIEN_KILLED_SOUND = "/sounds/invaderkilled.wav";
 }
